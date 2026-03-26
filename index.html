@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EPS Book</title>
+<style>
+body { background: #0f172a; color: white; text-align: center; font-family: Arial; }
+.container { position: relative; display: inline-block; margin-top: 20px; }
+.container img { width: 700px; border-radius: 10px; }
+.audio-btn { position: absolute; background: rgba(0,0,0,0.1); border: none; color: white; font-size: 18px; padding: 6px; border-radius: 90%; cursor: pointer; }
+.nav { margin-top: 20px; }
+.nav a { text-decoration: none; padding: 10px 20px; background: #2563eb; color: white; border-radius: 8px; margin: 10px; }
+.nav a:hover { background: #1d4ed8; }
+</style>
+</head>
+<body>
+
+<h2 id="page-title">EPS Book 1 - (Page)</h2>
+
+<div class="container">
+  <img id="page-img" src="/images/book1-001.jpeg" alt="EPS Book Page">
+
+  <!-- AUDIO BUTTONS 
+  <button class="audio-btn" style="top:121px; left:336px;" onclick="playAudio('a1')">🎧</button>
+  <button class="audio-btn" style="top:185px; left:420px;" onclick="playAudio('a2')">🎧</button>
+  <button class="audio-btn" style="top:286px; left:411px;" onclick="playAudio('a3')">🎧</button>
+  <button class="audio-btn" style="top:440px; left:495px;" onclick="playAudio('a4')">🎧</button>
+</div>
+
+ AUDIO FILES 
+<audio id="a1" src="audio/track 001.mp3"></audio>
+<audio id="a2" src="audio/track 002.mp3"></audio>
+<audio id="a3" src="audio/track 003.mp3"></audio>
+<audio id="a4" src="audio/track 004.mp3"></audio> -->
+
+<div class="nav">
+
+  <a id="next" href="page0002.html">Next ➡️</a>
+</div>
+
+<script>
+// Play audio function
+function playAudio(id) {
+  document.querySelectorAll("audio").forEach(a => { a.pause(); a.currentTime = 0; });
+  document.getElementById(id).play();
+}
+
+// Auto-update page info
+
+</script>
+
+</body>
+</html>
