@@ -5,3 +5,22 @@ body { background: #0f172a; color: white; text-align: center; font-family: Arial
 .nav { margin-top: 20px; }
 .nav a { text-decoration: none; padding: 10px 20px; background: #2563eb; color: white; border-radius: 8px; margin: 10px; }
 .nav a:hover { background: #1d4ed8; }
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+#page-img {
+  width: 100%;
+}
+
+.link-area {
+  position: absolute;
+  display: block;
+  background: rgba(255, 0, 0, 0); /* invisible */
+}
+
+.link-area:hover {
+  background: rgba(255, 0, 0, 0.2); /* highlight on hover */
+}
