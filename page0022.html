@@ -34,21 +34,5 @@
   <a id="next" href="#">Next ➡️</a>
 </div>
 
-
-<script>
-// PAGE NAVIGATION
-function goPage(direction) {
-  let current = 23; // CHANGE THIS PER PAGE
-  let nextPage = current + direction;
-
-  // Go to the next or previous page
-  window.location.href = "page" + nextPage + ".html";
-}
-
-// KEYBOARD SUPPORT
-document.addEventListener("keydown", function(e) {
-  if (e.key === "ArrowRight") goPage(1);   // Right arrow → next page
-  if (e.key === "ArrowLeft") goPage(-1);   // Left arrow → previous page
-});
 </body>
 </html>
