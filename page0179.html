@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EPS Book</title>
+<style>
+body { background: #0f172a; color: white; text-align: center; font-family: Arial; }
+.container { position: relative; display: inline-block; margin-top: 20px; }
+.container img { width: 700px; border-radius: 10px; }
+.audio-btn { position: absolute; background: rgba(0,0,0,0.1); border: none; color: white; font-size: 18px; padding: 6px; border-radius: 90%; cursor: pointer; }
+.nav { margin-top: 20px; }
+.nav a { text-decoration: none; padding: 10px 20px; background: #2563eb; color: white; border-radius: 8px; margin: 10px; }
+.nav a:hover { background: #1d4ed8; }
+</style>
+</head>
+<body>
+
+<h2 id="page-title">EPS Book 1 - (Page)</h2>
+
+<div class="container">
+  <img id="page-img" src="" alt="EPS Book Page">
+
+  <button class="audio-btn" style="top:77px; left:265px;" onclick="playAudio('a1')">🎧</button>
+ 
+</div>
+
+ 
+<audio id="a1" src="audio/track 092.mp3"></audio>
+
+
+<div class="nav">
+  <a id="prev" href="#">⬅️ Previous</a>
+  <a id="next" href="#">Next ➡️</a>
+</div>
+
+<script>
+// Play audio function
+function playAudio(id) {
+  document.querySelectorAll("audio").forEach(a => { a.pause(); a.currentTime = 0; });
+  document.getElementById(id).play();
+}
+
+// Auto-update page info
+(function() {
+  let file = window.location.pathname.split("/").pop(); // e.g., page0023.html
+  let match = file.match(/page0*(\d+)\.html/);
+  if (!match) return;
+
+  let pageNum = parseInt(match[1], 10);
+  let padNum = String(pageNum).padStart(4, '0');
+
+  // Update title
+  document.getElementById('page-title').textContent = `EPS Book 1 - (Page ${pageNum})`;
+  document.title = `EPS Book 1 - (Page ${pageNum})`;
+
+  // Update image
+  document.getElementById('page-img').src = `images/book1-${padNum}.jpeg`;
+
+  // Update navigation
+  let prev = document.getElementById('prev');
+  let next = document.getElementById('next');
+
+  if (pageNum > 1) {
+    prev.href = `page${String(pageNum - 1).padStart(4,'0')}.html`;
+    prev.style.display = 'inline';
+  } else {
+    prev.style.display = 'none';
+  }
+
+  next.href = `page${String(pageNum + 1).padStart(4,'0')}.html`;
+})();
+</script>
+
+</body>
+</html>
