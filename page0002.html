@@ -61,18 +61,7 @@ function playAudio(id) {
   // Update image
   document.getElementById('page-img').src = `images/book1-${padNum}.jpeg`;
 
-  // Update navigation
-  //let prev = document.getElementById('prev');
-  let next = document.getElementById('next');
 
-  if (pageNum > 1) {
-    prev.href = `page${String(pageNum - 1).padStart(4,'0')}.html`;
-    prev.style.display = 'inline';
-  } else {
-    prev.style.display = 'none';
-  }
-
-  next.href = `page${String(pageNum + 1).padStart(4,'0')}.html`;
 })();
 </script>
 
