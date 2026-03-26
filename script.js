@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let img = document.getElementById('page-img');
   if (img) {
     img.src = `images/book1-${padNum}.jpeg`;
+
+    // ✅ Wait for image to load before scaling
+    img.onload = updateScale;
   }
 
   // Navigation
@@ -47,10 +50,24 @@ document.addEventListener("DOMContentLoaded", function () {
     next.href = `page${String(pageNum + 1).padStart(4,'0')}.html`;
   }
 
-  // ✅ Keyboard navigation INSIDE DOM (better)
+  // Keyboard navigation
   document.addEventListener("keydown", function(e) {
     if (e.key === "ArrowRight" && next) next.click();
     if (e.key === "ArrowLeft" && prev) prev.click();
   });
+
+  // ✅ SCALE FUNCTION
+  function updateScale() {
+    let container = document.querySelector(".container");
+    let img = document.getElementById("page-img");
+
+    if (!img || !container) return;
+
+    let scale = img.clientWidth / 700; // change if your original image width is different
+    container.style.setProperty("--scale", scale);
+  }
+
+  // Resize trigger
+  window.addEventListener("resize", updateScale);
 
 });

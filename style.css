@@ -9,8 +9,19 @@ body { background: #0f172a; color: white; text-align: center; font-family: Arial
 .container {
   position: relative;
   display: inline-block;
+  width: 100%;
+  max-width: 700px;
 }
-
+.container img {
+  width: 100%;
+  display: block;
+}
+/* 🔥 scale buttons with image */
+.audio-btn {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(var(--scale));
+  transform-origin: top left;
+}
 #page-img {
   width: 100%;
 }
